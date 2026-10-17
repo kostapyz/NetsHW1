@@ -1,4 +1,3 @@
-# curl_request.py
 """
 Аналог python_request.HttpSession, но запросы выполняются через
 `curl`, запускаемый из subprocess. Собирает команду (bash-скрипт)
@@ -66,7 +65,6 @@ def build_curl_command(method: str, url: str,
     tmp_files = []
     if files:
         for field_name, spec in files.items():
-            # spec: (filename, content[, content_type])
             if isinstance(spec, tuple) and len(spec) == 3:
                 filename, content, content_type = spec
             elif isinstance(spec, tuple) and len(spec) == 2:

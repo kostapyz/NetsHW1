@@ -1,4 +1,3 @@
-# python_request.py
 """
 Отправка HTTP-запросов через requests с ретраями и per-request cookies.
 Экспортирует класс HttpSession с методом send(...) -> str (тело ответа).
@@ -49,7 +48,6 @@ class HttpSession:
              headers: dict | None = None,
              timeout=None) -> str:
 
-        # Каждый запрос — с нуля установленные cookies.
         self.session.cookies.clear()
         for k, v in (cookies or {}).items():
             self.session.cookies.set(k, v)

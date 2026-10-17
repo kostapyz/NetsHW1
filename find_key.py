@@ -1,4 +1,3 @@
-# find_key.py
 """
 Основной цикл:
 - берёт текущую страницу задания,
@@ -10,7 +9,6 @@
     python find_key.py --curl     # curl (curl_request.CurlSession)
     python find_key.py --curl -v  # curl с печатью команд
 """
-import re
 import sys
 import time
 from urllib.parse import urljoin, urlparse
@@ -41,7 +39,6 @@ def do_task(session, soup: BeautifulSoup, task_type: str, use_curl: bool) -> str
     """Выполняет одно задание и возвращает HTML ответа."""
     req = P.parse_request_data(soup)
 
-    # cookies = {user=...} U cookies из задания (задание перекрывает user)
     cookies = {"user": USER, **req["cookies"]}
     params = req["params"]
     form = req["form"]
@@ -105,7 +102,6 @@ def do_task(session, soup: BeautifulSoup, task_type: str, use_curl: bool) -> str
 def solve(use_curl: bool = False, verbose: bool = False) -> str:
     session = make_session(use_curl=use_curl, verbose=verbose)
 
-    # Первая страница всегда берётся с BASE_URL.
     current_html = session.send("GET", BASE_URL, cookies={"user": USER})
 
     for step in range(1, MAX_STEPS + 1):

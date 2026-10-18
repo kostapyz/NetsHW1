@@ -2,12 +2,12 @@
 Основной цикл:
 - берёт текущую страницу задания,
 - в зависимости от типа делает GET/POST/upload,
-- идёт по цепочке, пока не найдёт финальный 32-символьный hex-ключ.
+- идёт по цепочке, пока не найдёт финальный 32-символьный ключ.
 
 Использование:
-    python find_key.py            # requests (python_request.HttpSession)
-    python find_key.py --curl     # curl (curl_request.CurlSession)
-    python find_key.py --curl -v  # curl с печатью команд
+    python find_key.py
+    python find_key.py --curl
+    python find_key.py --curl -v
 """
 import sys
 import time
